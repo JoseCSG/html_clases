@@ -1,9 +1,13 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
 export default {
-  content: ['./index.html', './src/**/*.tsx'],
+  content: ["./index.html", "./src/**/*.tsx"],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        "spin-slow": "spin 3.5s linear infinite",
+      },
+    },
   },
   plugins: [],
-} satisfies Config
+} satisfies Config;
