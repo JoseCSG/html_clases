@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.social-media:has(li:hover) li:not(:hover) {
+    opacity: 0.5;
+}
