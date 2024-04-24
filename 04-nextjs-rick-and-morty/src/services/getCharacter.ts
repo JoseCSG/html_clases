@@ -9,3 +9,12 @@ export async function getCharacters(page : number) : Promise<Character[]> {
     const characters : Character[] = allData.results;
     return characters
 }
+
+export async function getSingleCharacter(id: number) : Promise<Character> {
+    const response = await fetch(
+        `https://rickandmortyapi.com/api/character/${id}`
+    )
+
+    const character : Character = await response.json();
+    return character
+}

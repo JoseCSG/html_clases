@@ -8,9 +8,10 @@ const Navbar = async () => {
       <Image
         src={"/RickMortyLogo.png"}
         alt="Rick and Morty Logo"
-        width={200}
+        width={129}
         height={100}
-        className="ml-4"
+        className="ml-4 w-auto h-auto"
+        priority
       />
       <div className=" h-full flex flex-row space-x-6 items-center">
         {paths.map((path, index) => (
