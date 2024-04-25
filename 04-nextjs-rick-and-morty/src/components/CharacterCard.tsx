@@ -17,14 +17,14 @@ interface CharacterProps {
 const CharacterCard = ({ character, setFavorites }: CharacterProps) => {
   const playSound = () => {
     const portalSound = document.getElementById(
-      "portalGunSound"
+      "portalGunSound",
     ) as HTMLAudioElement;
     portalSound.play();
   };
 
   const stopSound = () => {
     const portalSound = document.getElementById(
-      "portalGunSound"
+      "portalGunSound",
     ) as HTMLAudioElement;
     portalSound.pause();
     portalSound.currentTime = 0;
@@ -34,7 +34,7 @@ const CharacterCard = ({ character, setFavorites }: CharacterProps) => {
     <article
       /*       onMouseEnter={playSound}
       onMouseLeave={stopSound} */
-      className="flex flex-col group p-4 items-center h-auto justify-center mb-6 hover:border-2 border-green-400 transition-all duration-100 rounded-2xl box-content hover:scale-105"
+      className="group mb-6 box-content flex h-auto flex-col items-center justify-center rounded-2xl border-green-400 p-4 transition-all duration-100 hover:scale-105 hover:border-2"
     >
       <CharacterCardHeader character={character} setFavorites={setFavorites} />
       <CharacterCardBody character={character} />

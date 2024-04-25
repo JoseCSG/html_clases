@@ -13,13 +13,13 @@ const CharacterCardHeader = ({
   setFavorites,
 }: CharacterCardHeaderProps) => {
   return (
-    <div className="flex flex-col w-full pb-6 relative">
+    <div className="relative flex w-full flex-col pb-6">
       <FavoriteButton
         character={character!}
         color="text-white"
         size="h-8 w-8"
         setFavorites={setFavorites}
-        className="align-top self-end"
+        className="self-end align-top"
       />
 
       <Image
@@ -27,13 +27,13 @@ const CharacterCardHeader = ({
         alt="Portal"
         width={250}
         height={300}
-        className="mx-auto w-auto h-auto"
+        className="mx-auto h-auto w-auto"
       />
 
       <Image
         src={character?.image!}
         alt={`Image from ${character?.name}`}
-        className="rounded-full group-hover:scale-125 transition-all duration-1000 scale-0 self-center top-[32%] absolute"
+        className="absolute top-[32%] scale-0 self-center rounded-full transition-all duration-1000 group-hover:scale-125"
         width={120}
         height={120}
       />

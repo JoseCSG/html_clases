@@ -9,7 +9,7 @@ interface CharacterCardBodyProps {
 const CharacterCardBody = ({ character }: CharacterCardBodyProps) => {
   return (
     <>
-      <div className="p-2 text-base text-thin grid grid-flow-row gap-x-6 grid-cols-2 text-white">
+      <div className="text-thin grid grid-flow-row grid-cols-2 gap-x-6 p-2 text-base text-white">
         <TextLabel
           label="Name"
           text={character?.name}
@@ -34,7 +34,7 @@ const CharacterCardBody = ({ character }: CharacterCardBodyProps) => {
         />
       </div>
       <Link href={`/character/${character?.id}`}>
-        <button className="bg-green-600 text-white p-2 rounded-md hover:ring-2 hover:ring-green-700 hover:bg-green-700 transition-all duration-100">
+        <button className="rounded-md bg-green-600 p-2 text-white transition-all duration-100 hover:bg-green-700 hover:ring-2 hover:ring-green-700">
           Ver más
         </button>
       </Link>

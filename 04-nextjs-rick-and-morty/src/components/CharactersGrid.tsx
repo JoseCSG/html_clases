@@ -57,7 +57,7 @@ const CharactersGrid = ({ initialData }: CharactersGridProps) => {
 
   return (
     <section className="flex flex-col items-center justify-center">
-      <div className="grid grid-flow-row grid-cols-1 md:grid-cols-2 space-x-4 lg:grid-cols-4">
+      <div className="grid grid-flow-row grid-cols-1 space-x-4 md:grid-cols-2 lg:grid-cols-4">
         {data.map((character, index) => (
           <CharacterCard key={index} character={character} />
         ))}

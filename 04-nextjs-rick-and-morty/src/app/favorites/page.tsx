@@ -12,10 +12,14 @@ const Favorites = () => {
   }, []);
 
   return (
-    <main className="w-full px-6 max-h-[90dvh] pt-6 overflow-y-auto">
-      <div className="grid grid-flow-row grid-cols-1 md:grid-cols-2 space-x-4 lg:grid-cols-4">
+    <main className="max-h-[90dvh] w-full overflow-y-auto px-6 pt-6">
+      <div className="grid grid-flow-row grid-cols-1 space-x-4 md:grid-cols-2 lg:grid-cols-4">
         {favorites.map((character, index) => (
-          <CharacterCard key={index} character={character} setFavorites={setFavorites}/>
+          <CharacterCard
+            key={index}
+            character={character}
+            setFavorites={setFavorites}
+          />
         ))}
       </div>
       <audio id="portalGunSound" src="/sounds/portalSound.mp3" />
