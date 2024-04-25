@@ -2,6 +2,7 @@ import { paths } from "@/const/paths";
 import Image from "next/image";
 import Link from "next/link";
 import HomeIcon from "./icons/HomeIcon";
+import StarIcon from "./icons/StarIcon";
 
 const Navbar = async () => {
   return (
@@ -24,7 +25,20 @@ const Navbar = async () => {
             <p className="hidden text-lg font-bold text-white group-hover:text-green-500 md:block">
               {path.name}
             </p>
-            <span className="h-auto w-auto">{path.icon}</span>
+            {path.name === "Home" && (
+              <HomeIcon
+                color="text-white"
+                size="h-6 w-6"
+                className="group-hover:text-green-500"
+              />
+            )}
+            {path.name === "Favorites" && (
+              <StarIcon
+                color="text-white"
+                size="h-6 w-6"
+                className="group-hover:text-green-500 "
+              />
+            )}
           </Link>
         ))}
       </div>
