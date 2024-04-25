@@ -14,7 +14,7 @@ const CharacterBanner = ({ character }: CharacterBannerProps) => {
         ? "bg-red-500"
         : "bg-yellow-500";
   return (
-    <section className="col-span-3 row-span-4 h-full gap-2 md:col-span-1">
+    <section className="col-span-3 row-span-4 flex h-full flex-col items-center justify-center gap-2 md:col-span-1">
       <Image
         src={character.image}
         alt={`Image from ${character.name}`}

@@ -9,7 +9,7 @@ interface EpisodeCardProps {
 const EpisodeCard = async ({ episode }: EpisodeCardProps) => {
   const charactersOnEpisode = await getCharactersByURL(episode.characters);
   return (
-    <article className="box-content flex h-32 w-full flex-row rounded-lg border-2 border-green-500 p-4 text-white md:w-4/5">
+    <article className="box-content flex h-32 w-full flex-row rounded-lg border-2 border-green-500 p-4 text-white md:w-11/12">
       <div className="flex w-1/2 flex-col">
         <p>{episode.name}</p>
         <p>{episode.episode}</p>
