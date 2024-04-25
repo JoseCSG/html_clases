@@ -9,12 +9,14 @@ export async function getEpisode(id: number) {
     return episode
 }
 
-export async function getEpisodes(ids: number[]) {
-    const url = `https://rickandmortyapi.com/api/episode/${ids
-        .map((id) => id)
-        .join(",")}`;
-    const response = await fetch(url);
-
-    const episodes: Episode[] = await response.json();
-    return episodes;
-}
+export async function getEpisodes(urls: string[]): Promise<Episode[]> {
+    let characters: Episode[] = [];
+    for (let url of urls) {
+      const response = await fetch(url);
+      const character: Episode = await response.json();
+      characters.push(character);
+    }
+  
+    return characters;
+  }
+  

@@ -1,9 +1,10 @@
 import { Location } from "@/const/types";
 
-export async function getSingleLocation(id: number) {
-  const response = await fetch(
-    `https://rickandmortyapi.com/api/location/${id}`
-  );
+export async function getSingleLocation(url: string) {
+  if (!url) {
+    return null;
+  }
+  const response = await fetch(url);
 
   const location: Location = await response.json();
   return location;

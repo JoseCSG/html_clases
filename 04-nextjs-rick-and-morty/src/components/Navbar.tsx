@@ -8,7 +8,7 @@ const Navbar = async () => {
       <Image
         src={"/RickMortyLogo.png"}
         alt="Rick and Morty Logo"
-        width={129}
+        width={120}
         height={100}
         className="ml-4 w-auto h-auto"
         priority
@@ -16,7 +16,7 @@ const Navbar = async () => {
       <div className=" h-full flex flex-row space-x-6 items-center">
         {paths.map((path, index) => (
           <Link key={index} href={path.path} className="flex flex-row gap-2 group">
-            <p className="text-white group-hover:text-gray-400 font-bold text-lg">{path.name}</p>
+            <p className="text-white group-hover:text-green-500 font-bold text-lg">{path.name}</p>
           </Link>
         ))}
       </div>

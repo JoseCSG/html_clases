@@ -5,6 +5,7 @@ import { getCharacters } from "@/services/getCharacter";
 import { useCallback, useEffect, useState } from "react";
 import CharacterCard from "./CharacterCard";
 import { useInView } from "react-intersection-observer";
+import Loader from "./Loader";
 
 interface CharactersGridProps {
   initialData: Character[];
@@ -55,15 +56,15 @@ const CharactersGrid = ({ initialData }: CharactersGridProps) => {
   }, [inView, loading, loadMoreData]);
 
   return (
-    <section>
+    <section className="flex flex-col items-center justify-center">
       <div className="grid grid-flow-row grid-cols-1 md:grid-cols-2 space-x-4 lg:grid-cols-4">
         {data.map((character, index) => (
           <CharacterCard key={index} character={character} />
         ))}
       </div>
-      <div ref={ref} className="text-white col-span-4">
-        Loading ...
-      </div>
+      <span ref={ref}>
+        <Loader />
+      </span>
     </section>
   );
 };

@@ -33,35 +33,38 @@ const CharacterCard = ({ character, setFavorites }: CharacterProps) => {
       onMouseLeave={stopSound}
       className="flex flex-col group p-4 items-center h-auto justify-center mb-6 hover:border-2 border-green-400 transition-all duration-100 rounded-2xl box-content hover:scale-105"
     >
-      <div className="flex flex-col w-full bg-portal pb-6">
+      <div className="flex flex-col w-full pb-6 relative">
         <FavoriteButton
           character={character!}
           color="text-white"
-          size="h-7 w-7"
+          size="h-8 w-8"
           setFavorites={setFavorites}
           className="align-top self-end"
         />
+
+        <Image src={"/Portal.png"} alt="Portal" width={250} height={300} className="mx-auto" />
+
         <Image
           src={character?.image!}
           alt={`Image from ${character?.name}`}
-          className="rounded-full mx-auto group-hover:scale-125 mb-8 transition-all duration-1000 scale-0"
+          className="rounded-full group-hover:scale-125 transition-all duration-1000 scale-0 top-[35%] left-[35%] absolute"
           width={100}
           height={100}
         />
       </div>
       <div className="p-2 text-base text-thin grid grid-flow-row gap-x-6 grid-cols-2 text-white">
-        <p className="col-span-2 first-letter:text-green-500">
+        <p className="col-span-2 first-letter:text-green-500 truncate group-hover:text-pretty">
           <strong>Name: </strong> {character?.name} {" - "} {character?.status}
         </p>
-        <p className="first-letter:text-green-500">
+        <p className="first-letter:text-green-500 truncate group-hover:text-pretty">
           <strong>Gender: </strong>
           {character?.gender}
         </p>
-        <p className="first-letter:text-green-500">
+        <p className="first-letter:text-green-500 truncate group-hover:text-pretty">
           <strong>Species: </strong>
           {character?.species}
         </p>
-        <p className="col-span-2 first-letter:text-green-500">
+        <p className="col-span-2 first-letter:text-green-500 truncate group-hover:text-pretty">
           <strong>Location: </strong> {character?.location.name}
         </p>
       </div>

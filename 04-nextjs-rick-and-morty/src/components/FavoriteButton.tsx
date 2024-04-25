@@ -47,8 +47,8 @@ const FavoriteButton = ({
   }, [character]);
 
   return (
-    <span className="self-end" onClick={(e) => toggleFavorite(e)}>
-      <StarIcon color={color} size={size} className={className} fill={isFavorite} />;
+    <span className="self-end h-fit" onClick={(e) => toggleFavorite(e)}>
+      <StarIcon color={color} size={size} className={className} fill={isFavorite} />
     </span>
   );
 };
