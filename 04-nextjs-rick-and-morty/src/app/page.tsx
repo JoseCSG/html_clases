@@ -1,4 +1,3 @@
-import CharacterCard from "@/components/CharacterCard";
 import CharactersGrid from "@/components/CharactersGrid";
 import { getCharacters } from "@/services/getCharacter";
 
