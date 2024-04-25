@@ -7,7 +7,7 @@ export default async function Home() {
   return (
     <main className="w-full px-6 max-h-[90dvh] pt-6 overflow-y-auto">
       <CharactersGrid initialData={characters} />
-      <audio id="portalGunSound" src="/sounds/portalSound.mp3" />
+{/*       <audio id="portalGunSound" src="/sounds/portalSound.mp3" /> */}
     </main>
   );
 }

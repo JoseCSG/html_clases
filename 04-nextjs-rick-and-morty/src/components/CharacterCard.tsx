@@ -29,8 +29,8 @@ const CharacterCard = ({ character, setFavorites }: CharacterProps) => {
 
   return (
     <article
-      onMouseEnter={playSound}
-      onMouseLeave={stopSound}
+/*       onMouseEnter={playSound}
+      onMouseLeave={stopSound} */
       className="flex flex-col group p-4 items-center h-auto justify-center mb-6 hover:border-2 border-green-400 transition-all duration-100 rounded-2xl box-content hover:scale-105"
     >
       <div className="flex flex-col w-full pb-6 relative">
@@ -42,7 +42,7 @@ const CharacterCard = ({ character, setFavorites }: CharacterProps) => {
           className="align-top self-end"
         />
 
-        <Image src={"/Portal.png"} alt="Portal" width={250} height={300} className="mx-auto" />
+        <Image src={"/Portal.png"} alt="Portal" width={250} height={300} className="mx-auto w-auto h-auto" />
 
         <Image
           src={character?.image!}

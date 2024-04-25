@@ -15,7 +15,7 @@ export const paths: Path[] = [
     ),
   },
   {
-    name: "Favoritos",
+    name: "Favorites",
     path: "/favorites",
     icon: (
       <StarIcon
