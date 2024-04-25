@@ -47,9 +47,9 @@ const CharacterCard = ({ character, setFavorites }: CharacterProps) => {
         <Image
           src={character?.image!}
           alt={`Image from ${character?.name}`}
-          className="rounded-full group-hover:scale-125 transition-all duration-1000 scale-0 top-[35%] left-[35%] absolute"
-          width={100}
-          height={100}
+          className="rounded-full group-hover:scale-125 transition-all duration-1000 scale-0 self-center top-[32%] absolute"
+          width={120}
+          height={120}
         />
       </div>
       <div className="p-2 text-base text-thin grid grid-flow-row gap-x-6 grid-cols-2 text-white">
