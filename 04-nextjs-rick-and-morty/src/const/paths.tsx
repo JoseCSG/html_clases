@@ -10,7 +10,7 @@ export const paths: Path[] = [
       <HomeIcon
         color="text-white"
         size="h-6 w-6"
-        className=" group-hover:fill-white group-hover:transition-all group-hover:duration-100"
+        className="group-hover:text-green-500"
       />
     ),
   },
@@ -21,7 +21,7 @@ export const paths: Path[] = [
       <StarIcon
         color="text-white"
         size="h-6 w-6"
-        className=" hover:fill-white hover:transition-all hover:duration-100"
+        className="group-hover:text-green-500 "
       />
     ),
   },

@@ -1,7 +1,7 @@
 export type Path = {
   name: string;
   path: string;
-  icon?: React.ReactNode;
+  icon: React.ReactNode;
 };
 
 export interface IconProps {

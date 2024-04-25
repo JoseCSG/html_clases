@@ -13,6 +13,9 @@ const Favorites = () => {
 
   return (
     <main className="max-h-[90dvh] w-full overflow-y-auto px-6 pt-6">
+      <p className="mb-6 text-center text-3xl font-bold text-white">
+        Favorites
+      </p>
       <div className="grid grid-flow-row grid-cols-1 space-x-4 md:grid-cols-2 lg:grid-cols-4">
         {favorites.map((character, index) => (
           <CharacterCard
