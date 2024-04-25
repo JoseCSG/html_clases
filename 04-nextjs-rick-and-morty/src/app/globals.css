@@ -8,3 +8,15 @@
     background-size: 62.5%;
     background-position: center;  
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: rgb(34, 197, 94);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #FFFF;
+    border-radius: 10px;
+}
