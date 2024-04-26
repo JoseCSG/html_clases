@@ -23,6 +23,7 @@ export default function RootLayout({
       <body className={montse.className + " overflow-hidden bg-black px-3"}>
         <Navbar />
         {children}
+        <audio id="portalGunSound" src="/sounds/portalSound.mp3" />
       </body>
     </html>
   );

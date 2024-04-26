@@ -1,11 +1,6 @@
 "use client";
 import { Character } from "@/const/types";
-import Image from "next/image";
-import StarIcon from "./icons/StarIcon";
-import Link from "next/link";
-import FavoriteButton from "./FavoriteButton";
 import { Dispatch, SetStateAction } from "react";
-import TextLabel from "./TextLabel";
 import CharacterCardHeader from "./CharacterCardHeader";
 import CharacterCardBody from "./CharacterCardBody";
 
@@ -15,20 +10,22 @@ interface CharacterProps {
 }
 
 const CharacterCard = ({ character, setFavorites }: CharacterProps) => {
-  const playSound = () => {
-    const portalSound = document.getElementById(
-      "portalGunSound",
-    ) as HTMLAudioElement;
-    portalSound.play();
+  const portalSound = document.getElementById(
+    "portalGunSound",
+  ) as HTMLAudioElement;
+
+  /*   const playSound = () => {
+    if (portalSound.paused) {
+      portalSound.play();
+    }
   };
 
   const stopSound = () => {
-    const portalSound = document.getElementById(
-      "portalGunSound",
-    ) as HTMLAudioElement;
-    portalSound.pause();
-    portalSound.currentTime = 0;
-  };
+    if (portalSound.played) {
+      portalSound.pause();
+      portalSound.currentTime = 0;
+    }
+  }; */
 
   return (
     <article

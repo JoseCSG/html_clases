@@ -25,7 +25,6 @@ const Favorites = () => {
           />
         ))}
       </div>
-      <audio id="portalGunSound" src="/sounds/portalSound.mp3" />
     </main>
   );
 };
