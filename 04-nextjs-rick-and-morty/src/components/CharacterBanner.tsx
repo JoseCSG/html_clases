@@ -22,14 +22,14 @@ const CharacterBanner = ({ character }: CharacterBannerProps) => {
         height={350}
         className="mx-auto mb-6 self-center rounded-full"
       />
-      <div className="flex w-full flex-row items-center">
+      <div className={`relative flex w-full flex-row items-center`}>
         <TextLabel
           label="Name"
           text={character.name}
           secondText={character.status}
           size="text-3xl"
         />
-        <div className={`ml-5 h-5 w-5 rounded-full ${characterStatus}`} />
+        <div className={`ml-5 h-5 w-5 aspect-square rounded-full ${characterStatus}`} />
       </div>
       <TextLabel label="Gender" text={character.gender} size="text-3xl" />
       <TextLabel label="Species" text={character.species} size="text-3xl" />
