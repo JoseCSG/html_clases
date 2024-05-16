@@ -33,6 +33,10 @@ const FavoriteButton = ({
 
 
 
+
+
+    
+
     const index = favorites.findIndex(
       (fav: Character) => fav.id ===      character.id,
     );

@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "lint:": "next lint --fix",
-    "prepare": "cd .. && husky 04-nextjs-rick-and-morty/.husky || true",
+    "prepare": "husky",
     "lint-staged": "npx prettier --write . && npm run lint:",
     "pre-commit": "lint-staged"
   },
