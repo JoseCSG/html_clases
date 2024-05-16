@@ -28,8 +28,13 @@ const FavoriteButton = ({
   const toggleFavorite = (event: MouseEvent<HTMLSpanElement>) => {
     event.stopPropagation();
     const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+
+
+
+
+
     const index = favorites.findIndex(
-      (fav: Character) => fav.id === character.id,
+      (fav: Character) => fav.id ===      character.id,
     );
     if (index === -1) {
       setIsFavorite(true);
@@ -44,6 +49,7 @@ const FavoriteButton = ({
 
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+
     const index = favorites.findIndex(
       (fav: Character) => fav.id === character.id,
     );
@@ -52,24 +58,12 @@ const FavoriteButton = ({
     }
   }, [character]);
 
-
-
-
-
-
-
-
-
-
-
-
-
-                    return (
+  return (
     <button className="h-fit self-end" onClick={(e) => toggleFavorite(e)}>
-                <StarIcon
+      <StarIcon
         color={color}
         size={size}
-                className={className}
+        className={className}
         fill={isFavorite}
       />
     </button>
