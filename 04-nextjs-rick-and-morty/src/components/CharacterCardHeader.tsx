@@ -15,7 +15,7 @@ const CharacterCardHeader = ({
   return (
     <div className="relative flex w-full flex-col pb-6">
       <FavoriteButton
-        character={character!}
+        character={character}
         color="text-white"
         size="h-8 w-8"
         setFavorites={setFavorites}
@@ -27,11 +27,12 @@ const CharacterCardHeader = ({
         alt="Portal"
         width={250}
         height={300}
+        priority
         className="mx-auto h-auto w-auto"
       />
 
       <Image
-        src={character?.image!}
+        src={character?.image || ""}
         alt={`Image from ${character?.name}`}
         className="absolute top-[32%] scale-0 self-center rounded-full transition-all duration-1000 group-hover:scale-125"
         width={120}

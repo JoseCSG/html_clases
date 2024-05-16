@@ -3,7 +3,6 @@ import CharacterEpisodes from "@/components/CharacterEpisodes";
 import LocationInformation from "@/components/LocationInformation";
 
 import { getSingleCharacter } from "@/services/getCharacter";
-import { getSingleLocation } from "@/services/getLocations";
 const CharacterPage = async ({ params }: { params: { id: string } }) => {
   const character = await getSingleCharacter(parseInt(params.id));
 

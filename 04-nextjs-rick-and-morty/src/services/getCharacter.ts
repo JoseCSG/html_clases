@@ -11,8 +11,8 @@ export async function getCharacters(page: number): Promise<Character[]> {
 }
 
 export async function getCharactersByURL(urls: string[]): Promise<Character[]> {
-  let characters: Character[] = [];
-  for (let url of urls) {
+  const characters: Character[] = [];
+  for (const url of urls) {
     const response = await fetch(url);
     const character: Character = await response.json();
     characters.push(character);

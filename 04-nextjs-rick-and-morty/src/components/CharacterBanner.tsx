@@ -29,7 +29,9 @@ const CharacterBanner = ({ character }: CharacterBannerProps) => {
           secondText={character.status}
           size="text-3xl"
         />
-        <div className={`ml-5 h-5 w-5 aspect-square rounded-full ${characterStatus}`} />
+        <div
+          className={`ml-5 aspect-square h-5 w-5 rounded-full ${characterStatus}`}
+        />
       </div>
       <TextLabel label="Gender" text={character.gender} size="text-3xl" />
       <TextLabel label="Species" text={character.species} size="text-3xl" />

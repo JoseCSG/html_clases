@@ -1,4 +1,3 @@
-import { Character, Location } from "@/const/types";
 import CharacterImages from "./CharactersImages";
 import { getCharactersByURL } from "@/services/getCharacter";
 import TextLabel from "./TextLabel";

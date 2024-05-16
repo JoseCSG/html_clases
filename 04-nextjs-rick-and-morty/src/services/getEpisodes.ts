@@ -8,8 +8,8 @@ export async function getEpisode(id: number) {
 }
 
 export async function getEpisodes(urls: string[]): Promise<Episode[]> {
-  let characters: Episode[] = [];
-  for (let url of urls) {
+  const characters: Episode[] = [];
+  for (const url of urls) {
     const response = await fetch(url);
     const character: Episode = await response.json();
     characters.push(character);
