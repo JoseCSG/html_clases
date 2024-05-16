@@ -63,7 +63,17 @@ const FavoriteButton = ({
   }, [character]);
 
   return (
-    <button className="h-fit self-end" onClick={(e) => toggleFavorite(e)}>
+                          <button className="h-fit self-end" onClick={(e) => toggleFavorite(e)}>
+
+
+
+
+
+
+
+
+
+
       <StarIcon
         color={color}
         size={size}
