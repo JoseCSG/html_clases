@@ -29,21 +29,8 @@ const FavoriteButton = ({
     event.stopPropagation();
     const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
 
-
-
-
-
-
-
-
-
-
-
-    
-    
-
     const index = favorites.findIndex(
-      (fav: Character) => fav.id ===      character.id,
+      (fav: Character) => fav.id === character.id,
     );
     if (index === -1) {
       setIsFavorite(true);
@@ -68,17 +55,7 @@ const FavoriteButton = ({
   }, [character]);
 
   return (
-                          <button className="h-fit self-end" onClick={(e) => toggleFavorite(e)}>
-
-
-
-
-
-
-
-
-
-
+    <button className="h-fit self-end" onClick={(e) => toggleFavorite(e)}>
       <StarIcon
         color={color}
         size={size}
