@@ -11,7 +11,10 @@ interface CharacterProps {
 
 const CharacterCard = ({ character, setFavorites }: CharacterProps) => {
   return (
-    <article className="group mb-6 box-content flex h-auto flex-col items-center justify-center rounded-2xl border-green-400 p-4 transition-all duration-100 hover:scale-105 hover:border-2">
+    <article
+      data-testid="character-card"
+      className="group mb-6 box-content flex h-auto flex-col items-center justify-center rounded-2xl border-green-400 p-4 transition-all duration-100 hover:scale-105 hover:border-2"
+    >
       <CharacterCardHeader character={character} setFavorites={setFavorites} />
       <CharacterCardBody character={character} />
     </article>

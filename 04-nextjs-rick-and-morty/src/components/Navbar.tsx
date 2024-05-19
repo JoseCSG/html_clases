@@ -4,7 +4,7 @@ import Link from "next/link";
 import HomeIcon from "./icons/HomeIcon";
 import StarIcon from "./icons/StarIcon";
 
-const Navbar = async () => {
+const Navbar = () => {
   return (
     <nav className="flex h-[10dvh] w-full flex-row items-center justify-between border-b-2 border-white bg-black  p-4">
       <Image
@@ -18,6 +18,7 @@ const Navbar = async () => {
       <div className=" flex h-full flex-row items-center space-x-6">
         {paths.map((path, index) => (
           <Link
+            data-testid={`nav-${path.name}`}
             key={index}
             href={path.path}
             className="group flex flex-row gap-2"

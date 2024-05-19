@@ -33,7 +33,10 @@ const CharacterCardBody = ({ character }: CharacterCardBodyProps) => {
           size="truncate group-hover:text-pretty col-span-2"
         />
       </div>
-      <Link href={`/character/${character?.id}`}>
+      <Link
+        data-testid={`character-link-${character.id}`}
+        href={`/character/${character?.id}`}
+      >
         <button className="rounded-md bg-green-600 p-2 text-white transition-all duration-100 hover:bg-green-700 hover:ring-2 hover:ring-green-700">
           Ver más
         </button>

@@ -13,7 +13,7 @@ interface FavoriteProps {
   character: Character;
   color: string;
   size: string;
-  className: string;
+  className?: string;
   setFavorites?: Dispatch<SetStateAction<Character[]>>;
 }
 
@@ -55,7 +55,11 @@ const FavoriteButton = ({
   }, [character]);
 
   return (
-    <button className="h-fit self-end" onClick={(e) => toggleFavorite(e)}>
+    <button
+      data-testid={`id-${character.id}`}
+      className="h-fit self-end"
+      onClick={(e) => toggleFavorite(e)}
+    >
       <StarIcon
         color={color}
         size={size}

@@ -3,6 +3,7 @@ import { IconProps } from "@/const/types";
 const StarIcon = ({ color, size, className, fill = false }: IconProps) => {
   return (
     <svg
+      data-testid="star-icon"
       xmlns="http://www.w3.org/2000/svg"
       fill={fill ? "white" : "none"}
       viewBox="0 0 24 24"
