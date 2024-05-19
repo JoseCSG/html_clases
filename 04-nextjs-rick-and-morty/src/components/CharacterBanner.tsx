@@ -30,6 +30,7 @@ const CharacterBanner = ({ character }: CharacterBannerProps) => {
           size="text-3xl"
         />
         <div
+          data-testid={`status-${character.id}`}
           className={`ml-5 aspect-square h-5 w-5 rounded-full ${characterStatus}`}
         />
       </div>

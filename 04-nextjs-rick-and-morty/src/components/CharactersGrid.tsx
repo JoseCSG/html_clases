@@ -4,6 +4,7 @@ import { Character } from "@/const/types";
 import { getCharacters } from "@/services/getCharacter";
 import { useCallback, useEffect, useState } from "react";
 import CharacterCard from "./CharacterCard";
+import { useInView } from "react-intersection-observer";
 import Loader from "./Loader";
 
 interface CharactersGridProps {
@@ -14,6 +15,7 @@ const CharactersGrid = ({ initialData }: CharactersGridProps) => {
   const [data, setData] = useState<Character[]>(initialData);
   const [loading, setLoading] = useState<boolean>(false);
   const [page, setPage] = useState<number>(2);
+  const [ref, inView] = useInView();
 
   const loadMoreData = useCallback(async () => {
     setLoading(true);
@@ -23,29 +25,35 @@ const CharactersGrid = ({ initialData }: CharactersGridProps) => {
     setLoading(false);
   }, [data, page]);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     const onScroll = async () => {
-      console.log("Scroll event triggered");
+      console.log('Scroll event triggered');
       if (
-        window.innerHeight + window.scrollY >=
-          document.body.offsetHeight - 100 &&
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 &&
         !loading
       ) {
-        console.log("Condition met, attempting to load more data");
+        console.log('Condition met, attempting to load more data');
         await loadMoreData();
       }
     };
-
+  
     // Attach the event listener
-    document.addEventListener("scrollend", onScroll);
-    console.log("Event listener attached");
-
+    document.addEventListener("scroll", onScroll);
+    console.log('Event listener attached');
+  
     // Cleanup the event listener on component unmount
     return () => {
-      console.log("Event listener removed");
-      document.removeEventListener("scrollend", onScroll);
+      console.log('Event listener removed');
+      document.removeEventListener("scroll", onScroll);
     };
   }, [loading, loadMoreData]); // Ensure dependencies are correct
+   */
+
+  useEffect(() => {
+    if (inView && !loading) {
+      loadMoreData();
+    }
+  }, [inView, loading, loadMoreData]);
 
   return (
     <section className="flex flex-col items-center justify-center">
@@ -54,7 +62,9 @@ const CharactersGrid = ({ initialData }: CharactersGridProps) => {
           <CharacterCard key={index} character={character} />
         ))}
       </div>
-      <Loader />
+      <span ref={ref} data-testid="loader">
+        <Loader />
+      </span>
     </section>
   );
 };
