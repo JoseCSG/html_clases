@@ -10,6 +10,19 @@ export async function getCharacters(page: number): Promise<Character[]> {
   return characters;
 }
 
+export async function getCharactersByIds(ids: number[]): Promise<Character[]> {
+  const response = await fetch(
+    `https://rickandmortyapi.com/api/character/${ids.join(",")}`,
+  );
+
+  let characters: Character[];
+  const responseBody = await response.json();
+  if (Array.isArray(responseBody)) characters = responseBody;
+  else characters = [responseBody];
+
+  return characters;
+}
+
 export async function getCharactersByURL(urls: string[]): Promise<Character[]> {
   const characters: Character[] = [];
   for (const url of urls) {

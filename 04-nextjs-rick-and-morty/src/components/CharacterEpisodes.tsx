@@ -1,4 +1,4 @@
-import { getEpisodes } from "@/services/getEpisodes";
+import { getEpisodes } from "../services/getEpisodes";
 import TextLabel from "./TextLabel";
 import { Character } from "@/const/types";
 import EpisodeCard from "./EpisodeCard";

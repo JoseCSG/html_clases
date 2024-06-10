@@ -1,7 +1,7 @@
 import CharacterImages from "./CharactersImages";
-import { getCharactersByURL } from "@/services/getCharacter";
+import { getCharactersByURL } from "../services/getCharacter";
 import TextLabel from "./TextLabel";
-import { getSingleLocation } from "@/services/getLocations";
+import { getSingleLocation } from "../services/getLocations";
 
 interface LocationInformationProps {
   title: string;

@@ -1,5 +1,5 @@
 import { Episode } from "@/const/types";
-import { getCharactersByURL } from "@/services/getCharacter";
+import { getCharactersByURL } from "../services/getCharacter";
 import Image from "next/image";
 
 interface EpisodeCardProps {

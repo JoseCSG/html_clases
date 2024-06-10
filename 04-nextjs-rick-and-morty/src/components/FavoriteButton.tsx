@@ -1,20 +1,15 @@
 "use client";
 import { Character } from "@/const/types";
 import StarIcon from "./icons/StarIcon";
-import {
-  Dispatch,
-  MouseEvent,
-  SetStateAction,
-  useEffect,
-  useState,
-} from "react";
+import { useState } from "react";
+import { auth } from "@/auth";
 
 interface FavoriteProps {
   character: Character;
   color: string;
   size: string;
   className?: string;
-  setFavorites?: Dispatch<SetStateAction<Character[]>>;
+  isFavorite: boolean;
 }
 
 const FavoriteButton = ({
@@ -22,9 +17,26 @@ const FavoriteButton = ({
   color,
   size,
   className,
-  setFavorites,
+  isFavorite,
 }: FavoriteProps) => {
-  const [isFavorite, setIsFavorite] = useState<boolean>(false);
+  const [isFav, setIsFav] = useState<boolean>(isFavorite);
+
+  const toggleFavoriteAction = async () => {
+    const session = await auth();
+    if (!session) return;
+    const userId = session.user?.id;
+    const res = await fetch(
+      `/api/toggle-favorite?userId=${userId}&characterId=${character.id}`,
+      {
+        method: "POST",
+      },
+    );
+    const { isFavorite } = await res.json();
+    setIsFav(isFavorite);
+    //    if (res !== "NO SESSION" && res !== "NO USER") setIsFav(res);
+  };
+
+  /*   const [isFavorite, setIsFavorite] = useState<boolean>(false);
   const toggleFavorite = (event: MouseEvent<HTMLSpanElement>) => {
     event.stopPropagation();
     const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
@@ -53,19 +65,15 @@ const FavoriteButton = ({
       setIsFavorite(true);
     }
   }, [character]);
+ */
 
   return (
     <button
       data-testid={`id-${character.id}`}
       className="h-fit self-end"
-      onClick={(e) => toggleFavorite(e)}
+      onClick={toggleFavoriteAction}
     >
-      <StarIcon
-        color={color}
-        size={size}
-        className={className}
-        fill={isFavorite}
-      />
+      <StarIcon color={color} size={size} className={className} fill={isFav} />
     </button>
   );
 };

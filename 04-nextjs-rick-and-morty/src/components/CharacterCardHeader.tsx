@@ -1,25 +1,23 @@
 import { Character } from "@/const/types";
-import { Dispatch, SetStateAction } from "react";
 import FavoriteButton from "./FavoriteButton";
 import Image from "next/image";
+import { isCharacterFavorite } from "../services/favorites";
 
 interface CharacterCardHeaderProps {
   character: Character;
-  setFavorites?: Dispatch<SetStateAction<Character[]>>;
 }
 
-const CharacterCardHeader = ({
-  character,
-  setFavorites,
-}: CharacterCardHeaderProps) => {
+const CharacterCardHeader = async ({ character }: CharacterCardHeaderProps) => {
+  const isFavorite = await isCharacterFavorite(character.id);
+
   return (
     <div className="relative flex w-full flex-col pb-6">
       <FavoriteButton
         character={character}
         color="text-white"
         size="h-8 w-8"
-        setFavorites={setFavorites}
         className="self-end align-top"
+        isFavorite={isFavorite}
       />
 
       <Image

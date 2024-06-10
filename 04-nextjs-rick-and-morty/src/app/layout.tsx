@@ -20,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={montse.className + " overflow-hidden bg-black px-3"}>
+      <body
+        className={montse.className + " h-dvh overflow-hidden bg-black px-3"}
+      >
         <Navbar />
         {children}
       </body>

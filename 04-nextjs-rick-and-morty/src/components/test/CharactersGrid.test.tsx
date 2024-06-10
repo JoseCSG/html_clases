@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { beforeAll, describe, expect, test, vi } from "vitest";
 import CharactersGrid from "../CharactersGrid";
-import { getCharacters } from "@/services/getCharacter";
+import { getCharacters } from "../../services/getCharacter";
 
 beforeAll(() => {
   const mockIntersectionObserver = vi.fn();

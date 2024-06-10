@@ -55,3 +55,8 @@ export interface Location {
   url: string;
   created: string;
 }
+
+export type DatabaseErrorType =
+  | "UniqueConstraintViolation"
+  | "ConnectionError"
+  | "GeneralError";

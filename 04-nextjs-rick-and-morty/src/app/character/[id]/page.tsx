@@ -1,11 +1,13 @@
 import CharacterBanner from "@/components/CharacterBanner";
 import CharacterEpisodes from "@/components/CharacterEpisodes";
 import LocationInformation from "@/components/LocationInformation";
+import { isCharacterFavorite } from "../../../services/favorites";
 
-import { getSingleCharacter } from "@/services/getCharacter";
+import { getSingleCharacter } from "../../../services/getCharacter";
 const CharacterPage = async ({ params }: { params: { id: string } }) => {
   const character = await getSingleCharacter(parseInt(params.id));
-
+  const isFavorite = await isCharacterFavorite(parseInt(params.id));
+  console.log(isFavorite);
   return (
     <main className="grid h-[90dvh] w-screen grid-cols-3 items-center overflow-auto p-5 md:overflow-hidden">
       <CharacterBanner character={character} />

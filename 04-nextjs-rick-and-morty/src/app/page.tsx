@@ -1,5 +1,5 @@
 import CharactersGrid from "@/components/CharactersGrid";
-import { getCharacters } from "@/services/getCharacter";
+import { getCharacters } from "../services/getCharacter";
 
 export default async function Home() {
   const characters = await getCharacters(1);
