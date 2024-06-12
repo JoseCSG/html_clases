@@ -34,7 +34,8 @@ const Favorites = async () => {
         </div>
       )}
       <div className="grid grid-flow-row grid-cols-1 space-x-4 md:grid-cols-2 lg:grid-cols-4">
-        {favorites &&
+        {session &&
+          favorites &&
           favorites.map((character, index) => (
             <CharacterCard key={index} character={character} />
           ))}

@@ -1,11 +1,13 @@
+import { auth } from "@/auth";
 import { toggleFavorite } from "@/services/favorites";
 import { NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
-  const userId = req.nextUrl.searchParams.get("userId");
   const characterId = req.nextUrl.searchParams.get("characterId");
-  if (!userId || !characterId) {
-    return new Response("Missing userId or characterId", { status: 400 });
+  const session = await auth();
+  const userId = session?.user?.id;
+  if (!characterId || !userId) {
+    return Response.json({ status: 400, message: "Missing auth" });
   }
 
   const res = await toggleFavorite(Number(characterId), userId);

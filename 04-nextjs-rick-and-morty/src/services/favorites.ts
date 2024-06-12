@@ -2,9 +2,15 @@ import db from "../db/index";
 import { favorites } from "../db/schema";
 import { and, eq } from "drizzle-orm";
 import { getCharactersByIds } from "./getCharacter";
+import { auth } from "@/auth";
 
 export async function getFavorites() {
-  const favoritesArray = await db.select().from(favorites);
+  const session = await auth();
+  const userId = session?.user?.id as string;
+  const favoritesArray = await db
+    .select()
+    .from(favorites)
+    .where(eq(favorites.user_id, userId));
   if (favoritesArray.length === 0) {
     return [];
   }
@@ -42,10 +48,17 @@ export async function toggleFavorite(characterId: number, userId: string) {
 }
 
 export async function isCharacterFavorite(characterId: number) {
+  const session = await auth();
+  const userId = session?.user?.id as string;
   const isAlreadyFavorite = await db
     .select()
     .from(favorites)
-    .where(eq(favorites.character_id, characterId));
+    .where(
+      and(
+        eq(favorites.character_id, characterId),
+        eq(favorites.user_id, userId),
+      ),
+    );
 
   return isAlreadyFavorite.length > 0;
 }

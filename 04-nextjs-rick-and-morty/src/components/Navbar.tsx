@@ -3,8 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import HomeIcon from "./icons/HomeIcon";
 import StarIcon from "./icons/StarIcon";
-
-const Navbar = () => {
+import LogoutButton from "./LogoutButton";
+import { auth } from "@/auth";
+const Navbar = async () => {
+  const session = await auth();
   return (
     <nav className="flex h-[10dvh] w-full flex-row items-center justify-between border-b-2 border-white bg-black  p-4">
       <Image
@@ -42,6 +44,15 @@ const Navbar = () => {
             )}
           </Link>
         ))}
+        {session?.user ? (
+          <LogoutButton />
+        ) : (
+          <Link href="/login">
+            <button className="rounded-md bg-green-500 p-2 text-white">
+              Login
+            </button>
+          </Link>
+        )}
       </div>
     </nav>
   );

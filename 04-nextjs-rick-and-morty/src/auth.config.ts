@@ -7,19 +7,9 @@ export const authConfig = {
   callbacks: {
     async authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
-      if (!isLoggedIn) {
-        if (
-          nextUrl.pathname.startsWith("/login") ||
-          nextUrl.pathname.startsWith("/register")
-        ) {
-          return true;
-        }
-        return false; // Redirect unauthenticated users to login page
-      }
-
       if (
-        nextUrl.pathname.startsWith("/login") ||
-        nextUrl.pathname.startsWith("/register")
+        isLoggedIn &&
+        (nextUrl.pathname === "/login" || nextUrl.pathname === "/register")
       ) {
         return Response.redirect(new URL("/", nextUrl));
       }

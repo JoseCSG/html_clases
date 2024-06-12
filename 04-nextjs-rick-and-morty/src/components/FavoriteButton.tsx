@@ -2,7 +2,8 @@
 import { Character } from "@/const/types";
 import StarIcon from "./icons/StarIcon";
 import { useState } from "react";
-import { auth } from "@/auth";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 interface FavoriteProps {
   character: Character;
@@ -20,19 +21,23 @@ const FavoriteButton = ({
   isFavorite,
 }: FavoriteProps) => {
   const [isFav, setIsFav] = useState<boolean>(isFavorite);
-
+  const router = useRouter();
   const toggleFavoriteAction = async () => {
-    const session = await auth();
-    if (!session) return;
-    const userId = session.user?.id;
     const res = await fetch(
-      `/api/toggle-favorite?userId=${userId}&characterId=${character.id}`,
+      `/api/toggle-favorite?characterId=${character.id}`,
       {
         method: "POST",
       },
     );
-    const { isFavorite } = await res.json();
+    const { isFavorite, message } = await res.json();
+    if (message) {
+      toast.error("You need to be logged in to add favorites");
+      return;
+    }
+
     setIsFav(isFavorite);
+    toast.success(isFavorite ? "Added to favorites" : "Removed from favorites");
+    router.refresh();
     //    if (res !== "NO SESSION" && res !== "NO USER") setIsFav(res);
   };
 
