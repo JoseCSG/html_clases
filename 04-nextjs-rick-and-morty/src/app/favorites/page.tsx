@@ -4,8 +4,8 @@ import { auth } from "@/auth";
 import Link from "next/link";
 
 const Favorites = async () => {
-  const favorites = await getFavorites();
   const session = await auth();
+  const favorites = await getFavorites();
   return (
     <main className="flex h-full w-full flex-col overflow-y-auto px-6 pt-6">
       <p className="mb-6 text-center text-3xl font-bold text-white">
