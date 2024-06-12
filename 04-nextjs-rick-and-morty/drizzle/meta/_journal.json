@@ -5,22 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1717979331108,
-      "tag": "0000_same_living_mummy",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1717985839038,
-      "tag": "0001_cynical_cannonball",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1717987537103,
-      "tag": "0002_stiff_ravenous",
+      "when": 1718210772391,
+      "tag": "0000_familiar_menace",
       "breakpoints": true
     }
   ]

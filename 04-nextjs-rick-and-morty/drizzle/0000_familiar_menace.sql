@@ -1,11 +1,12 @@
 CREATE TABLE IF NOT EXISTS "favorites" (
 	"favorite_id" serial PRIMARY KEY NOT NULL,
 	"character_id" integer NOT NULL,
-	"user_id" integer NOT NULL
+	"user_id" uuid NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "users" (
-	"user_id" serial PRIMARY KEY NOT NULL,
+	"user_id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	"name" varchar NOT NULL,
 	"email" varchar NOT NULL,
 	"password" varchar NOT NULL,
 	"created_at" timestamp DEFAULT now() NOT NULL,
