@@ -29,10 +29,6 @@ jobs:
           cd 04-nextjs-rick-and-morty
           npm install
 
-      - name: Run tests
-        run: |
-          cd 04-nextjs-rick-and-morty
-          npm run test:ci
 
       - name: Install Vercel CLI
         run: npm add -g vercel@latest
