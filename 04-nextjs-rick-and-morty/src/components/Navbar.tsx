@@ -48,7 +48,7 @@ const Navbar = async () => {
           <LogoutButton />
         ) : (
           <Link href="/login">
-            <button className="rounded-md bg-green-500 p-2 text-white">
+            <button className="rounded-md bg-green-500 p-2 text-white hover:bg-green-600">
               Login
             </button>
           </Link>
