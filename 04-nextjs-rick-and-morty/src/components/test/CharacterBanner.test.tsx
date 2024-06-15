@@ -1,7 +1,15 @@
 import { render, screen } from "@testing-library/react";
-import { describe, expect, test } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 import CharacterBanner from "../CharacterBanner";
 import { Character } from "@/const/types";
+
+vi.mock("@/auth", () => {
+  return {
+    auth: {
+      user: { id: "prueba_id" },
+    },
+  };
+});
 
 const testCharacter: Character = {
   id: 2,

@@ -1,12 +1,16 @@
 import { Character, MultipleCharacterResponse } from "@/const/types";
 
-export async function getCharacters(page: number): Promise<Character[]> {
-  const response = await fetch(
-    `https://rickandmortyapi.com/api/character/?page=${page}`,
-  );
+export async function getCharacters(): Promise<Character[]> {
+  const numberOfPages = 5;
+  const characters: Character[] = [];
+  for (let page = 1; page <= numberOfPages; page++) {
+    const response = await fetch(
+      `https://rickandmortyapi.com/api/character/?page=${page}`,
+    );
+    const data: MultipleCharacterResponse = await response.json();
+    characters.push(...data.results);
+  }
 
-  const allData: MultipleCharacterResponse = await response.json();
-  const characters: Character[] = allData.results;
   return characters;
 }
 
