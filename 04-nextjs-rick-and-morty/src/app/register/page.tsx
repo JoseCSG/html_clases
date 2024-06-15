@@ -7,7 +7,10 @@ const Register = () => {
       <h1 className="mb-4 text-3xl font-bold text-white">
         Register to save your favorite characters!
       </h1>
-      <form action={registerAction} className="flex w-1/4 flex-col space-y-4">
+      <form
+        action={registerAction}
+        className="flex w-full flex-col space-y-4 md:w-1/4"
+      >
         <input
           type="text"
           placeholder="Username"

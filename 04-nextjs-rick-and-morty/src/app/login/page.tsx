@@ -7,7 +7,10 @@ const Login = () => {
       <h1 className="mb-4 text-3xl font-bold text-white">
         Welcome to Rick and Morty Wiki
       </h1>
-      <form action={loginAction} className="flex w-1/4 flex-col space-y-4">
+      <form
+        action={loginAction}
+        className="flex w-full flex-col space-y-4 md:w-1/4"
+      >
         <input
           type="email"
           placeholder="Email"
