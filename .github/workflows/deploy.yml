@@ -15,7 +15,30 @@ on:
       - "**.md"
 
 jobs:
+  run-unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: |
+          cd 04-nextjs-rick-and-morty
+          npm i
+
+      - name: Run Unit Tests
+        run: |
+          cd 04-nextjs-rick-and-morty
+          npm run test:ci
+
+
   build-deploy:
+    needs: run-unit-test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
